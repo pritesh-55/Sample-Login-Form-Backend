@@ -47,7 +47,7 @@ college_schema.methods.generatetoken = async function(){
     try {
         // this representing current document jo user ne abhi register/login kiya, this keyword does not work with fat arrow function ()=>
         // Token generate krene ke kiye we need 2 things 1) a unique data 2) a secret key
-        const token = await jwt.sign({_id: this._id.toString()}, 'secretkeyof32charactersfortokengeneration')
+        const token = await jwt.sign({_id: this._id.toString()}, `${process.env.SECRET_KEY}`)
         this.token = token 
         await this.save()   // Registration krte time save functionality hai but not on login time that's why yhi save kr rahe hain
         return token

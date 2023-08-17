@@ -59,7 +59,7 @@ server.get("/login", async (req,res)=>{
         // If user ne pehle already login kiya hua tha then uska token cookies mei store hoga, here we will verify cookie token to user token(saved in databse), if matches then we will show the authorized page of user
         // First checking if any token exists in cookies or not then verify
         if(req.cookies.webtoken){
-            const verify = await jwt.verify(req.cookies.webtoken,'secretkeyof32charactersfortokengeneration')
+            const verify = await jwt.verify(req.cookies.webtoken,`${process.env.SECRET_KEY}`)
             if(verify){
                 const user = await profile.findOne({token:req.cookies.webtoken})
                 res.render("secret")
@@ -202,7 +202,7 @@ server.post('/otpgen', async (req,res)=>{
         service: 'gmail',
         auth: {
             user: 'priteshsrivastava502@gmail.com',
-            pass: 'wsutqlzkggbixedt'   // Setup App-Password in Google Account to get this
+            pass: `${process.env.APP_PASSWORD}`   // Setup App-Password in Google Account to get this
         }
     })
 
