@@ -255,8 +255,9 @@ server.post('/otpgen', async (req,res)=>{
 })
 
 server.post('/otpval', async (req,res)=>{
-    const email = req.cookies.userval
+    const email = req.cookies.userval  // Cookie mei jo username store karaya tha wo request part se get kr lenge
     const user = await profile.findOne({email})
+    // OTP Validation 
     if(user.otp == req.body.otpval){
         res.render('otpval')
     }
@@ -266,9 +267,10 @@ server.post('/otpval', async (req,res)=>{
 })
 
 server.post('/updated', async (req,res)=>{
-    const email = req.cookies.userval
+    const email = req.cookies.userval   // Again cookie se email data get krenge
     const user = await profile.findOne({email})
 
+    // Password Updation
     if(req.body.npass == req.body.cpass){
         user.password = req.body.npass
         user.confirmpassword = req.body.cpass
@@ -286,7 +288,7 @@ server.post('/updated', async (req,res)=>{
 
 
 server.listen(port, ()=>{
-    console.log(`The Express Server is listening at port no. ${port}`)
+    console.log(`The Express Server is listening to port no. ${port}`)
 })
 
 
