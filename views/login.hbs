@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    {{>style}}
+</head>
+<body class="body">
+    <header style="text-align: center; padding: 20px 40px 5px 30px;">
+        <h1 id="title">Login Page </h1>
+    </header>
+    <form class="formy" action="/login" method="POST" >
+
+        <p style="padding: 30px 40px 0px 30px;">
+             <input class="box" type="email" name="Email" placeholder="Enter your Email" required>
+        </p>
+        <p>
+            <input class="box" type="password" name="Pass" placeholder="Enter Password" required>
+        </p>
+
+        
+
+        <p style="padding: 10px 40px 15px 30px;">
+            <button id="s" class="box" type="submit">Login</button>
+        </p>
+    </form>
+    <p class="formy">
+           <a href="/forgot"><button id="s">Forgot Password</button></a>
+    </p>
+    
+</body>
+</html>
