@@ -1,11 +1,10 @@
 {
-  "name": "registration-form-backend",
+  "name": "Sample-Login-Form-Backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "src": "index.js", 
+    "start": "node index.js", 
       "use": "@vercel/node"
   },
   "keywords": [],
